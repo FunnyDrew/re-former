@@ -4,14 +4,16 @@ class UsersController < ApplicationController
   end
 
   def create
-  puts params
+  
     #@user = User.new(whitelisted_user_params)
-    @user = User.new(:username => params[:name],
-                      :email => params[:email],
-                      :password => params[:password])
+    #@user = User.new(:username => params[:name],
+    #                  :email => params[:email],
+    #                  :password => params[:password])
     #puts "@@@@@@@@@@@@@@@@@@@@@@@"
     #puts params
     #puts "@@@@@@@@@@@@@@@@@@@@@@@"
+    @user = User.new
+    puts params
 
     if @user.save
       puts "!!!!!!!!!!!!!!!!!!!!!!!!PUMS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
