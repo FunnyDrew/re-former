@@ -29,12 +29,15 @@
 <% end %> -->
 
 
-<%= form_with model: @article do |form|%>
-  <%= form.text_field :name, "UserName" %>
+<%= form_with model: User.new do |form|%>
+  <%=form.label :username, "Name"%>
+  <%= form.text_field :username %>
   <p></p>
-  <%= form.email_field :email, "e-mail" %>
+  <%=form.label :email%>
+  <%= form.email_field :email %>
   <p></p>
-  <%= form.password_field :password, "password"%>
+  <%=form.label :password%>
+  <%= form.password_field :password%>
   <p></p>
   <%= form.submit  "Submit" %>
 <% end %>

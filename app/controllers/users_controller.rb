@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     #puts "@@@@@@@@@@@@@@@@@@@@@@@"
     #puts params
     #puts "@@@@@@@@@@@@@@@@@@@@@@@"
-    @user = User.new
-    puts params
+    @user = User.new(whitelisted_user_params)
 
     if @user.save
       puts "!!!!!!!!!!!!!!!!!!!!!!!!PUMS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
