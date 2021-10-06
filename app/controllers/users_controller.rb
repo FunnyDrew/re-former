@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all
+  end 
+
   def new
     
   end
@@ -21,6 +26,20 @@ class UsersController < ApplicationController
       puts "!!!!!!!!!!!!!!!!!!!!!!!!PIMS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
       render :new
     end    
+  end
+
+  def edit
+    @user = User.find(params[:id])    
+  end
+
+  def update
+    @user_updated = User.find(params[:id])
+    puts @user_updated
+    @user_updated.username = params[:user]
+
+    puts @user_updated.save.errors
+
+    redirect_to root_path
   end
 
   def whitelisted_user_params

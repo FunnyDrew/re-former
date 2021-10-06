@@ -31,10 +31,10 @@
 
 <%= form_with model: User.new do |form|%>
   <%=form.label :username, "Name"%>
-  <%= form.text_field :username %>
+  <%= form.text_field :username, placeholder: "First Last names" %>
   <p></p>
   <%=form.label :email%>
-  <%= form.email_field :email %>
+  <%= form.email_field :email, placeholder: "example@mail.xom" %>
   <p></p>
   <%=form.label :password%>
   <%= form.password_field :password%>
