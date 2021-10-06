@@ -8,22 +8,13 @@ class UsersController < ApplicationController
     
   end
 
-  def create
-  
-    #@user = User.new(whitelisted_user_params)
-    #@user = User.new(:username => params[:name],
-    #                  :email => params[:email],
-    #                  :password => params[:password])
-    #puts "@@@@@@@@@@@@@@@@@@@@@@@"
-    #puts params
-    #puts "@@@@@@@@@@@@@@@@@@@@@@@"
+  def create  
+    
     @user = User.new(whitelisted_user_params)
 
     if @user.save
-      puts "!!!!!!!!!!!!!!!!!!!!!!!!PUMS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-      redirect_to new_user_path      
+      redirect_to root_path      
     else
-      puts "!!!!!!!!!!!!!!!!!!!!!!!!PIMS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
       render :new
     end    
   end
@@ -33,13 +24,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user_updated = User.find(params[:id])
-    puts @user_updated
-    @user_updated.username = params[:user]
-
-    puts @user_updated.save.errors
-
-    redirect_to root_path
+    
+    @user = User.find(params[:id])
+    
+    @user.username = params[:username]
+    @user.email = params[:email]
+    @user.password = params[:password]
+    
+    if @user.save
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def whitelisted_user_params

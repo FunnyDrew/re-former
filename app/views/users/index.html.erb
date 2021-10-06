@@ -7,3 +7,9 @@
     <%end%>
   <%end%>
 </ul>
+<div>
+  <%=form_with url: "/users/new", method: :get do |form| %>
+    <%=form.submit "Create new User"%>
+    <%end%>
+
+</div>
